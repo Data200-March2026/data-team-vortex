@@ -7,7 +7,7 @@ Team Vortex
 
 ### Team Members
 1. Bilakshana Neupane (Bilakshana)
-2. *Member 2 Name (RahulRimal15)
+2. Rahul Rimal (RahulRimal15)
 
 
 ### Task Division
