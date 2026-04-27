@@ -11,6 +11,6 @@ House Price Prediction
 
 
 ### Task Division
-- **Bilakshana Neupane**: *Data preprocessing and feature engineering, model implementation and technical validation plus review. *
+- **Bilakshana Neupane**: *Data preprocessing and feature engineering, model implementation and technical validation plus review.*
 - **Rahul Rimal**: *EDA, Model Evaluation, and Visualization plus final report/documentation*
 
