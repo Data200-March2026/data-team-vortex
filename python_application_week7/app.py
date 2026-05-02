@@ -93,8 +93,9 @@ def load_model():
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data/cleaned_housing.csv")
-    def label(row):
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    DATA_PATH = BASE_DIR / "Dataset" / "cleaned_housing.csv"
+    return pd.read_csv(DATA_PATH)
         if row["ocean_proximity_INLAND"]:     return "INLAND"
         if row["ocean_proximity_ISLAND"]:     return "ISLAND"
         if row["ocean_proximity_NEAR BAY"]:   return "NEAR BAY"
