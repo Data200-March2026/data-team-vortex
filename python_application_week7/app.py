@@ -86,7 +86,9 @@ PROX_COLORS = dict(zip(PROX_ORDER, PALETTE))
 # ── Model & data ──────────────────────────────────────────────────────────────
 @st.cache_resource
 def load_model():
-    return joblib.load("model/housing_model.pkl")
+    BASE_DIR = Path(__file__).parent
+    MODEL_PATH = BASE_DIR / "model" / "housing_model.pkl"
+    return joblib.load(MODEL_PATH)
 
 @st.cache_data
 def load_data():
