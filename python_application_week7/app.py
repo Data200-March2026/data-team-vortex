@@ -91,21 +91,28 @@ def load_model():
     MODEL_PATH = BASE_DIR / "model" / "housing_model.pkl"
     return joblib.load(MODEL_PATH)
 
+
 @st.cache_data
 def load_data():
     BASE_DIR = Path(__file__).resolve().parent.parent
     DATA_PATH = BASE_DIR / "Dataset" / "cleaned_housing.csv"
-    return pd.read_csv(DATA_PATH)
-        if row["ocean_proximity_INLAND"]:     return "INLAND"
-        if row["ocean_proximity_ISLAND"]:     return "ISLAND"
-        if row["ocean_proximity_NEAR BAY"]:   return "NEAR BAY"
-        if row["ocean_proximity_NEAR OCEAN"]: return "NEAR OCEAN"
-        return "<1H OCEAN"
-    df["ocean_proximity"] = df.apply(label, axis=1)
+    df = pd.read_csv(DATA_PATH)
     return df
 
+def label(row):
+    if row["ocean_proximity_INLAND"]:
+        return "INLAND"
+    if row["ocean_proximity_ISLAND"]:
+        return "ISLAND"
+    if row["ocean_proximity_NEAR BAY"]:
+        return "NEAR BAY"
+    if row["ocean_proximity_NEAR OCEAN"]:
+        return "NEAR OCEAN"
+    return "<1H OCEAN"
+
+df = load_data()
+df["ocean_proximity"] = df.apply(label, axis=1)
 model = load_model()
-df    = load_data()
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
